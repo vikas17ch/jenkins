@@ -7,15 +7,15 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
+        stage('VPC Checkout') {
             steps {
                 script {
-                    git 'https://github.com/vikas17ch/Terraform_Code.git'
+                    git 'https://github.com/vikas17ch/Terraform_Code.git/vpc_aws.tf'
                 }
             }
         }
 
-        stage('Terraform Init') {
+        stage('VPC Terraform Init') {
             steps {
                 script {
                     sh 'terraform init'
@@ -23,7 +23,7 @@ pipeline {
             }
         }
 
-         stage('Terraform Plan') {
+         stage('VPC Terraform Plan') {
             steps {
                 script {
                     sh 'terraform plan'
@@ -31,12 +31,55 @@ pipeline {
             }
         }
 
-        stage('Terraform Apply') {
+        stage('VPC Terraform Apply') {
             steps {
                 script {
                     sh 'terraform apply -auto-approve'
                 }
             }
         }
+
+        stage('Delay') {
+            steps {
+                script {
+                    // Add a delay of 300 seconds (5 minutes)
+                    sleep time: 300, unit: 'SECONDS'
+                }
+            }
+        }
+
+        stage('EC2 Checkout') {
+            steps {
+                script {
+                    git 'https://github.com/vikas17ch/Terraform_Code.git/Ec2.tf'
+                }
+            }
+        }
+
+        stage('EC2 Terraform Init') {
+            steps {
+                script {
+                    sh 'terraform init'
+                }
+            }
+        }
+
+         stage('EC2 Terraform Plan') {
+            steps {
+                script {
+                    sh 'terraform plan'
+                }
+            }
+        }
+
+        stage('EC2 Terraform Apply') {
+            steps {
+                script {
+                    sh 'terraform apply -auto-approve'
+                }
+            }
+        }
+
+
     }
 }
