@@ -43,7 +43,7 @@ pipeline {
             steps {
                 script {
                     // Add a delay of 300 seconds (5 minutes)
-                    sleep time: 300, unit: 'SECONDS'
+                    sleep time: 120, unit: 'SECONDS'
                 }
             }
         }
