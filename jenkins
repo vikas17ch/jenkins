@@ -10,7 +10,7 @@ pipeline {
         stage('VPC Checkout') {
             steps {
                 script {
-                    git 'https://github.com/vikas17ch/Terraform_Code.git/vpc_aws.tf'
+                    git 'https://github.com/vikas17ch/Terraform_Code.git'
                 }
             }
         }
@@ -51,7 +51,7 @@ pipeline {
         stage('EC2 Checkout') {
             steps {
                 script {
-                    git 'https://github.com/vikas17ch/Terraform_Code.git/Ec2.tf'
+                    git 'https://github.com/vikas17ch/Ec2.git'
                 }
             }
         }
