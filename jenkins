@@ -42,7 +42,7 @@ pipeline {
         stage('Delay') {
             steps {
                 script {
-                    // Add a delay of 300 seconds (5 minutes)
+                    // Add a delay of 120 seconds (2 minutes)
                     sleep time: 120, unit: 'SECONDS'
                 }
             }
